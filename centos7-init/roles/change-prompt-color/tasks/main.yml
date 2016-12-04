@@ -1,0 +1,15 @@
+---
+- name: Change all user's prompt color
+  blockinfile:
+    dest: '/etc/profile'
+    state: present
+    content: |
+      # Change all user's prompt color
+      export PS1='\[\033[01;36m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+- name: Change root prompt color
+  blockinfile:
+    dest: '/root/.bashrc'
+    state: present
+    content: |
+      # Change root prompt color
+      export PS1='\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

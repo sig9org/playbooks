@@ -1,0 +1,15 @@
+---
+- name: Initialize CentOS7
+  hosts: all
+  remote_user: root
+
+  roles:
+    - yum-update
+    - install-packages
+    - disable-selinux
+    - add-user
+    - change-prompt-color
+    - disable-default-ntp
+    - add-google-ntp
+    - restart-chronyd
+    - yum-clean-all
