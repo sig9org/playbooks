@@ -1,5 +1,0 @@
----
-- name: Add a new user
-  user: name={{USERNAME}} password={{PASSWORD}} state=present
-- name: Add a sudo user
-  lineinfile: "dest=/etc/sudoers backup=yes state=present regexp='^{{USERNAME}}' line='{{USERNAME}} ALL=(ALL) NOPASSWD: ALL'"
