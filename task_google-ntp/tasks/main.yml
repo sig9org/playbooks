@@ -19,4 +19,16 @@
     dest: '/etc/chrony.conf'
     regexp: '^server 3.centos.pool.ntp.org iburst'
     replace: '#server 3.centos.pool.ntp.org iburst'
-
+- name: Add Google NTP servers
+  blockinfile:
+    dest: '/etc/chrony.conf'
+    state: present
+    content: |
+      # Google NTP servers
+      server time1.google.com iburst
+      server time2.google.com iburst
+      server time3.google.com iburst
+      server time4.google.com iburst
+- name: Restart chronyd
+  service: name=chronyd enabled=yes state=restarted
+  ignore_errors: True

@@ -4,12 +4,10 @@
   remote_user: root
 
   roles:
-    - yum-update
-    - install-packages
-    - disable-selinux
-    - add-user
-    - change-prompt-color
-    - disable-default-ntp
-    - add-google-ntp
-    - restart-chronyd
-    - yum-clean-all
+    - task_yum-update
+    - task_install-base-packages
+    - task_disable-selinux
+    - task_add-user
+    - task_prompt-color
+    - task_google-ntp
+    - task_yum-clean-all
