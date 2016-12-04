@@ -1,0 +1,22 @@
+---
+- name: Install base packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - bash-completion
+    - chrony
+    - curl
+    - dnsutils
+    - git
+    - lsof
+    - man
+    - nmap
+    - open-vm-tools
+    - psmisc
+    - sshpass
+    - tcpdump
+    - tmux
+    - tree
+    - unzip
+    - vim-nox
+    - wget
+    - zip

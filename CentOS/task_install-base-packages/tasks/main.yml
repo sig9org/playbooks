@@ -1,0 +1,19 @@
+---
+- name: Install base packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - bash-completion
+    - chrony
+    - bind-utils
+    - git
+    - libselinux-python
+    - lsof
+    - nmap
+    - open-vm-tools
+    - tcpdump
+    - tmux
+    - tree
+    - unzip
+    - wget
+    - yum-utils
+    - zip

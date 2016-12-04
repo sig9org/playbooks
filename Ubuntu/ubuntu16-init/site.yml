@@ -1,0 +1,11 @@
+---
+- name: Initialize Ubuntu16
+  hosts: all
+  remote_user: root
+
+  roles:
+    - task_install-base-packages
+    - task_add-user
+    - task_prompt-color
+    - task_google-ntp
+    - task_apt-get-clean

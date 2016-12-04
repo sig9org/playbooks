@@ -1,0 +1,3 @@
+USERNAME: user
+# PASSWORD="password"
+PASSWORD: $1$SALT$42vd7ynea6uJSSMWOKgr1.
