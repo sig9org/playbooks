@@ -1,0 +1,12 @@
+---
+- name: Create test machine.
+  hosts: all
+  remote_user: root
+
+  roles:
+    - task_yum-update
+    - task_install-base-packages
+    - task_disable-selinux
+    - task_add-user
+    - task_prompt-color
+    - task_google-ntp
