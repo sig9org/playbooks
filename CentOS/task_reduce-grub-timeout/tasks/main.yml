@@ -1,0 +1,6 @@
+---
+- name: Reduce grub timeout
+  replace:
+    dest: '/etc/default/grub'
+    regexp: '^GRUB_TIMEOUT=5'
+    replace: 'GRUB_TIMEOUT=1'

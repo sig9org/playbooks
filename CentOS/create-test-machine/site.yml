@@ -10,3 +10,4 @@
     - task_add-user
     - task_prompt-color
     - task_google-ntp
+    - task_reduce-grub-timeout
