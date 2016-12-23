@@ -14,6 +14,7 @@
     - tmux
     - tree
     - unzip
+    - vim-enhanced
     - wget
     - yum-utils
     - zip
