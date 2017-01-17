@@ -1,0 +1,5 @@
+---
+- name: Update /etc/hosts (1)
+  shell: echo '127.0.0.1  ' `hostname` 'localhost localhost.localdomain localhost4 localhost4.localdomain4' > /etc/hosts
+- name: Update /etc/hosts (2)
+  shell: echo '::1        ' `hostname` 'localhost localhost.localdomain localhost6 localhost6.localdomain6' >> /etc/hosts

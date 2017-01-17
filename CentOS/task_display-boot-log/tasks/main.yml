@@ -1,0 +1,11 @@
+---
+- name: Display boot log for LVM
+  replace:
+    dest: '/etc/default/grub'
+    regexp: '^GRUB_CMDLINE_LINUX="rd.lvm.lv=cl/root rd.lvm.lv=cl/swap rhgb quiet"'
+    replace: 'GRUB_CMDLINE_LINUX="rd.lvm.lv=cl/root rd.lvm.lv=cl/swap"'
+- name: Display boot log for Standard Partition
+  replace:
+    dest: '/etc/default/grub'
+    regexp: '^GRUB_CMDLINE_LINUX="rhgb quiet"'
+    replace: 'GRUB_CMDLINE_LINUX=""'
