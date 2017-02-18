@@ -9,7 +9,7 @@
     - git
     - lsof
     - man
-    - nmap
+    - mosh
     - open-vm-tools
     - psmisc
     - sshpass

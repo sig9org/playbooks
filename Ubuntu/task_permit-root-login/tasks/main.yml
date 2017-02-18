@@ -1,0 +1,6 @@
+---
+- name: Permit root login
+  replace:
+    dest: '/etc/ssh/sshd_config'
+    regexp: '^PermitRootLogin prohibit-password'
+    replace: 'PermitRootLogin yes'

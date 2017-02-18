@@ -1,0 +1,18 @@
+---
+- name: Initialize Ubuntu16
+  hosts: all
+  become: yes
+
+  roles:
+    - task_copy-fixed-address
+    - task_change-root-password
+    - task_permit-root-login
+    - task_restart-ssh
+    - task_install-aptitude
+    - task_apt-get-upgrade
+    - task_install-base-packages
+    - task_prompt-color
+    - task_google-ntp
+    - task_apt-get-clean
+    - task_reduce-grub-timeout
+    - task_update-grub

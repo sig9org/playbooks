@@ -1,0 +1,9 @@
+---
+- name: Copy /root/fixed-address.bash
+  copy: src=fixed-address.bash
+    dest=/root/fixed-address.bash
+    backup=no
+    directory_mode=no
+    owner=root
+    group=root
+    mode=0755

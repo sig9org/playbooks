@@ -4,6 +4,7 @@
   remote_user: root
 
   roles:
+    - task_copy-fixed-address
     - task_update-hosts
     - task_yum-update
     - task_install-base-packages
