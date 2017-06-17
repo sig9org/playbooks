@@ -8,10 +8,12 @@
     - task_update-hosts
     - task_yum-update
     - task_install-base-packages
+    - task_install-docker-ce
     - task_disable-selinux
     - task_disable-firewalld
     - task_add-user
     - task_prompt-color
+    - task_modify-bashrc
     - task_google-ntp
     - task_reduce-grub-timeout
     - task_display-boot-log
