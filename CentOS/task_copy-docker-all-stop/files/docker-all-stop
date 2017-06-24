@@ -1,0 +1,10 @@
+#!/bin/sh
+
+COUNT=`docker ps -a -q | wc -l`
+if [ $COUNT != 0 ]; then
+  echo 'Stopping...'
+  docker stop $(docker ps -a -q)
+  echo 'Removing...'
+  docker rm $(docker ps -a -q)
+fi
+

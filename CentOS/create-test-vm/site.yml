@@ -5,6 +5,7 @@
 
   roles:
     - task_copy-fixed-address
+    - task_copy-docker-all-stop
     - task_update-hosts
     - task_yum-update
     - task_install-base-packages

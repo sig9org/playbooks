@@ -1,0 +1,9 @@
+---
+- name: Copy /usr/local/bin/docker-all-stop
+  copy: src=docker-all-stop
+    dest=/usr/local/bin/docker-all-stop
+    backup=no
+    directory_mode=no
+    owner=root
+    group=root
+    mode=0755
