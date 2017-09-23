@@ -18,5 +18,5 @@
     - task_google-ntp
     - task_reduce-grub-timeout
     - task_display-boot-log
+    - task_enable_console
     - task_update-grub2
-

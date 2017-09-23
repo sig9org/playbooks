@@ -1,0 +1,6 @@
+---
+- name: Reduce grub timeout
+  replace:
+    dest: '/etc/default/grub'
+    regexp: '^GRUB_CMDLINE_LINUX=""'
+    replace: 'GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8r"'
