@@ -3,3 +3,8 @@
   shell: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
 - name: Install docker-ce
   yum: name=docker-ce state=present
+- name: Restart docker
+  service: name=docker
+    state=restarted
+    enabled=yes
+

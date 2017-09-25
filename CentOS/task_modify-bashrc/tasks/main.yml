@@ -2,5 +2,5 @@
 - name: Modify /root/.bashrc
   replace:
     dest: '/root/.bashrc'
-    regexp: '^alias rm=\'rm -i\''
-    replace: '#alias rm=\'rm -i\''
+    regexp: "^alias rm='rm -i'"
+    replace: "#alias rm='rm -i'"
