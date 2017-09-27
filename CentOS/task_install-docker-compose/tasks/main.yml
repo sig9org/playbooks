@@ -1,0 +1,9 @@
+---
+- name: Install Docker-compose
+  copy: src=docker-compose_1.16.1
+    dest=/usr/local/bin/docker-compose
+    backup=no
+    directory_mode=no
+    owner=root
+    group=root
+    mode=0755

@@ -10,6 +10,7 @@
     - task_yum-update
     - task_install-base-packages
     - task_install-docker-ce
+    - task_install-docker-compose
     - task_disable-selinux
     - task_disable-firewalld
     - task_add-user
