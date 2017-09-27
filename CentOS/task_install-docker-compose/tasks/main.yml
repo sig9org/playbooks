@@ -1,9 +1,5 @@
 ---
 - name: Install Docker-compose
-  copy: src=docker-compose_1.16.1
-    dest=/usr/local/bin/docker-compose
-    backup=no
-    directory_mode=no
-    owner=root
-    group=root
-    mode=0755
+  get_url: url="https://github.com/docker/compose/releases/download/1.16.1/docker-compose-Linux-x86_64" dest=/usr/local/bin/docker-compose
+- name: Chnage Docker-compose's permission
+  file: path=/usr/local/bin/docker-compose state=file mode="a+x"
