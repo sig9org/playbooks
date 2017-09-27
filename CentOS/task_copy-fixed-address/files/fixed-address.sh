@@ -1,15 +1,26 @@
-#!/bin/bash
+#!/bin/sh
 
-HOSTNAME="00-01-c7"
-INTERFACE="ens160"
-ADDRESS="172.20.0.1"
+ADDRESS=$1
 NETMASK="/24"
-GATEWAY="172.20.0.254"
+GATEWAY="254"
 DNS="8.8.8.8 8.8.4.4"
+INTERFACE="ens160"
+
+A1=`echo ${ADDRESS} | cut -d. -f 1`
+A2=`echo ${ADDRESS} | cut -d. -f 2`
+A3=`echo ${ADDRESS} | cut -d. -f 3`
+A4=`echo ${ADDRESS} | cut -d. -f 4`
+
+H1=`printf "%03d" ${A1}`
+H2=`printf "%03d" ${A2}`
+H3=`printf "%03d" ${A3}`
+H4=`printf "%03d" ${A4}`
+
+HOSTNAME=${H1}-${H2}-${H3}-${H4}
 
 hostnamectl set-hostname ${HOSTNAME}
 nmcli connection modify ${INTERFACE} ipv4.addresses "${ADDRESS}${NETMASK}"
-nmcli connection modify ${INTERFACE} ipv4.gateway "${GATEWAY}"
+nmcli connection modify ${INTERFACE} ipv4.gateway "${A1}.${A2}.${A3}.${GATEWAY}"
 nmcli connection modify ${INTERFACE} ipv4.dns "${DNS}"
 nmcli connection modify ${INTERFACE} ipv4.method manual
 
@@ -18,3 +29,8 @@ cat << EOS > /etc/hosts
 127.0.0.1   ${HOSTNAME} localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         ${HOSTNAME} localhost localhost.localdomain localhost6 localhost6.localdomain6
 EOS
+
+sync
+sync
+sync
+reboot
