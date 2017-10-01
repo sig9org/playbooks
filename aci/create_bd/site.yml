@@ -1,0 +1,36 @@
+---
+
+- name: Playbook to create common filters.
+  hosts: apic
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - aci_bd:
+        host: "{{ aci }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: false
+        state: present
+        tenant: "{{ tenant }}"
+        bd: "{{ inventory_hostname }}"
+        vrf: "{{ vrf }}"
+    - aci_bd_subnet:
+        host: "{{ aci }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: false
+        tenant: "{{ tenant }}"
+        bd: "{{ inventory_hostname }}"
+        gateway: "{{ gateway }}"
+        mask: "{{ mask }}"
+        scope: "{{ scope }}"
+    - aci_bd_to_l3out:
+        host: "{{ aci }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: false
+        state: present
+        tenant: "{{ tenant }}"
+        bd: "{{ inventory_hostname }}"
+        l3out: "{{ l3out }}"

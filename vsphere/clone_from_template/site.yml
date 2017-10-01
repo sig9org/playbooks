@@ -1,0 +1,51 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  user: remote
+  sudo: true
+
+  tasks:
+    - vsphere_guest:
+        validate_certs: false
+        vcenter_hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        guest: "{{ inventory_hostname }}"
+        power_on_after_clone: no
+        from_template: yes
+        template_src: "{{ template }}"
+        cluster: "{{ cluster }}"
+        vm_extra_config:
+          folder: "{{ folder }}"
+          notes: "{{ notes }}"
+        esxi:
+          datacenter: "{{ datacenter }}"
+          hostname: "{{ esxi_host }}"
+    - vsphere_guest:
+        validate_certs: false
+        vcenter_hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        guest: "{{ inventory_hostname }}"
+        state: reconfigured
+        cluster: "{{ cluster }}"
+        esxi:
+          datacenter: "{{ datacenter }}"
+          hostname: "{{ esxi_host }}"
+        vm_nic:
+          nic1:
+            type: vmxnet3
+            network: "{{ network }}"
+            network_type: "{{ network_type }}"
+    - vsphere_guest:
+        validate_certs: false
+        vcenter_hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        guest: "{{ inventory_hostname }}"
+        state: "{{ state }}"
+        cluster: "{{ cluster }}"
+        esxi:
+          datacenter: "{{ datacenter }}"
+          hostname: "{{ esxi_host }}"
