@@ -1,0 +1,111 @@
+---
+
+- name: Playbook to create common filters.
+  hosts: apic
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - aci_filter:
+        name={{ item }}
+        tenant=common
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+      with_items:
+        - Ansible_DNS
+
+    - aci_filter_entry:
+        tenant=common
+        filter=Ansible_DNS
+        name=DNS
+        ether_type=ip
+        ip_protocol=udp
+        dst_port=53
+        state=present
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+
+    - aci_filter:
+        name={{ item }}
+        tenant=common
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+      with_items:
+        - Ansible_ICMP
+
+    - aci_filter_entry:
+        tenant=common
+        filter=Ansible_ICMP
+        name=ICMPv4
+        ether_type=ip
+        ip_protocol=icmp
+        state=present
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+
+    - aci_filter:
+        name={{ item }}
+        tenant=common
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+      with_items:
+        - Ansible_SSH
+
+    - aci_filter_entry:
+        tenant=common
+        filter=Ansible_SSH
+        name=SSH
+        ether_type=ip
+        ip_protocol=tcp
+        dst_port=22
+        state=present
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+
+    - aci_filter:
+        name={{ item }}
+        tenant=common
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+      with_items:
+        - Ansible_WEB
+
+    - aci_filter_entry:
+        tenant=common
+        filter=Ansible_WEB
+        name=HTTP
+        ether_type=ip
+        ip_protocol=tcp
+        dst_port=80
+        state=present
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
+
+    - aci_filter_entry:
+        tenant=common
+        filter=Ansible_WEB
+        name=HTTPS
+        ether_type=ip
+        ip_protocol=tcp
+        dst_port=443
+        state=present
+        host={{ inventory_hostname }}
+        username={{ username }}
+        password={{ password }}
+        validate_certs=False
