@@ -7,54 +7,54 @@
 
   tasks:
     - aci_bd:
+        bd: "{{ inventory_hostname }}"
         host: "{{ aci }}"
-        username: "{{ username }}"
         password: "{{ password }}"
-        validate_certs: false
         state: present
         tenant: "{{ tenant }}"
-        bd: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        validate_certs: false
         vrf: "{{ vrf }}"
     - aci_bd_subnet:
-        host: "{{ aci }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        validate_certs: false
-        tenant: "{{ tenant }}"
         bd: "{{ inventory_hostname }}"
         gateway: "{{ gateway }}"
+        host: "{{ aci }}"
         mask: "{{ mask }}"
+        password: "{{ password }}"
         scope: "{{ scope }}"
+        tenant: "{{ tenant }}"
+        username: "{{ username }}"
+        validate_certs: false
     - aci_bd_to_l3out:
-        host: "{{ aci }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        validate_certs: false
-        state: present
-        tenant: "{{ tenant }}"
         bd: "{{ inventory_hostname }}"
+        host: "{{ aci }}"
         l3out: "{{ l3out }}"
+        password: "{{ password }}"
+        state: present
+        tenant: "{{ tenant }}"
+        username: "{{ username }}"
+        validate_certs: false
     - aci_epg:
-        host: "{{ aci }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        validate_certs: false
-        state: present
-        tenant: "{{ tenant }}"
         ap: "{{ ap }}"
-        epg: "{{ inventory_hostname }}"
         bd: "{{ inventory_hostname }}"
-    - aci_epg_to_domain:
+        epg: "{{ inventory_hostname }}"
         host: "{{ aci }}"
-        username: "{{ username }}"
         password: "{{ password }}"
-        validate_certs: false
         state: present
         tenant: "{{ tenant }}"
+        username: "{{ username }}"
+        validate_certs: false
+    - aci_epg_to_domain:
         ap: "{{ ap }}"
-        epg: "{{ inventory_hostname }}"
-        domain_type: "{{ domain_type }}"
-        domain: "{{ domain }}"
         deploy_immediacy: "{{ deploy_immediacy }}"
+        domain: "{{ domain }}"
+        domain_type: "{{ domain_type }}"
+        epg: "{{ inventory_hostname }}"
+        host: "{{ aci }}"
+        password: "{{ password }}"
         resolution_immediacy: "{{ resolution_immediacy }}"
+        state: present
+        tenant: "{{ tenant }}"
+        username: "{{ username }}"
+        validate_certs: false
         vm_provider: "{{ vm_provider }}"
