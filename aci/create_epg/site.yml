@@ -56,3 +56,6 @@
         bd: "{{ inventory_hostname }}"
         domain_type: "{{ domain_type }}"
         domain: "{{ domain }}"
+        deploy_immediacy: "{{ deploy_immediacy }}"
+        resolution_immediacy: "{{ resolution_immediacy }}"
+        vm_provider: "{{ vm_provider }}"
