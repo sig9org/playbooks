@@ -1,6 +1,6 @@
 ---
 
-- name: Create BD (Bridge Domain)
+- name: Create EPG (End Point Group)
   hosts: apic
   connection: local
   gather_facts: no
@@ -13,7 +13,7 @@
         validate_certs: false
         state: present
         tenant: "{{ tenant }}"
-        bd: "{{ inventory_hostname }}"
+        bd: BD-"{{ inventory_hostname }}"
         vrf: "{{ vrf }}"
     - aci_bd_subnet:
         host: "{{ aci }}"
@@ -21,7 +21,7 @@
         password: "{{ password }}"
         validate_certs: false
         tenant: "{{ tenant }}"
-        bd: "{{ inventory_hostname }}"
+        bd: BD-"{{ inventory_hostname }}"
         gateway: "{{ gateway }}"
         mask: "{{ mask }}"
         scope: "{{ scope }}"
@@ -32,5 +32,15 @@
         validate_certs: false
         state: present
         tenant: "{{ tenant }}"
-        bd: "{{ inventory_hostname }}"
+        bd: BD-"{{ inventory_hostname }}"
         l3out: "{{ l3out }}"
+    - aci_epg:
+        host: "{{ aci }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: false
+        state: present
+        tenant: "{{ tenant }}"
+        ap: "{{ ap }}"
+        epg: EPG-"{{ epg }}"
+        bd: BD-"{{ inventory_hostname }}"
