@@ -53,7 +53,6 @@
         tenant: "{{ tenant }}"
         ap: "{{ ap }}"
         epg: "{{ inventory_hostname }}"
-        bd: "{{ inventory_hostname }}"
         domain_type: "{{ domain_type }}"
         domain: "{{ domain }}"
         deploy_immediacy: "{{ deploy_immediacy }}"
