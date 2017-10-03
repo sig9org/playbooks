@@ -13,7 +13,7 @@
         validate_certs: false
         state: present
         tenant: "{{ tenant }}"
-        bd: BD-"{{ inventory_hostname }}"
+        bd: "{{ inventory_hostname }}"
         vrf: "{{ vrf }}"
     - aci_bd_subnet:
         host: "{{ aci }}"
@@ -21,7 +21,7 @@
         password: "{{ password }}"
         validate_certs: false
         tenant: "{{ tenant }}"
-        bd: BD-"{{ inventory_hostname }}"
+        bd: "{{ inventory_hostname }}"
         gateway: "{{ gateway }}"
         mask: "{{ mask }}"
         scope: "{{ scope }}"
@@ -32,7 +32,7 @@
         validate_certs: false
         state: present
         tenant: "{{ tenant }}"
-        bd: BD-"{{ inventory_hostname }}"
+        bd: "{{ inventory_hostname }}"
         l3out: "{{ l3out }}"
     - aci_epg:
         host: "{{ aci }}"
@@ -42,5 +42,17 @@
         state: present
         tenant: "{{ tenant }}"
         ap: "{{ ap }}"
-        epg: EPG-"{{ epg }}"
-        bd: BD-"{{ inventory_hostname }}"
+        epg: "{{ inventory_hostname }}"
+        bd: "{{ inventory_hostname }}"
+    - aci_epg_to_domain:
+        host: "{{ aci }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: false
+        state: present
+        tenant: "{{ tenant }}"
+        ap: "{{ ap }}"
+        epg: "{{ inventory_hostname }}"
+        bd: "{{ inventory_hostname }}"
+        domain_type: "{{ domain_type }}"
+        domain: "{{ domain }}"
