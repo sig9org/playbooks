@@ -1,7 +1,7 @@
 ---
 - name: Copy /root/fixed-address.sh
-  copy: src=fixed-address.sh
-    dest=/root/fixed-address.sh
+  copy: src=fixed-address
+    dest=/usr/local/bin/fixed-address
     backup=no
     directory_mode=no
     owner=root

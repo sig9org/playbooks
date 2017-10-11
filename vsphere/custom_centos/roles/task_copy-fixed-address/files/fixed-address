@@ -4,7 +4,7 @@ ADDRESS=$1
 NETMASK="/24"
 GATEWAY="254"
 DNS="8.8.8.8 8.8.4.4"
-INTERFACE="ens160"
+INTERFACE="ens192"
 
 A1=`echo ${ADDRESS} | cut -d. -f 1`
 A2=`echo ${ADDRESS} | cut -d. -f 2`
