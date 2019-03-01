@@ -1,0 +1,6 @@
+---
+- name: Modify /etc/ssh/sshd_config
+  replace:
+    dest: '/etc/ssh/sshd_config'
+    regexp: "^#UseDNS yes"
+    replace: "UseDNS no"

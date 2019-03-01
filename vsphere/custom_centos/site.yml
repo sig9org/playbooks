@@ -5,17 +5,18 @@
 
   roles:
     - task_copy-fixed-address
-    - task_copy-docker-all-stop
     - task_update-hosts
     - task_yum-update
     - task_install-base-packages
-    - task_install-docker-ce
-    - task_install-docker-compose
+#    - task_install-docker-ce
+#    - task_install-docker-compose
+#    - task_copy-docker-all-stop
     - task_disable-selinux
     - task_disable-firewalld
     - task_add-user
     - task_prompt-color
     - task_modify-bashrc
+    - task_disable_ssh-use-dns
     - task_google-ntp
     - task_reduce-grub-timeout
     - task_display-boot-log
