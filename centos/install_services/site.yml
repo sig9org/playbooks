@@ -1,0 +1,9 @@
+---
+- name: Install services.
+  hosts: all
+  remote_user: root
+
+  roles:
+    - task_install-dnsmasq
+    - task_install-httpd
+    - task_install-telnet-server

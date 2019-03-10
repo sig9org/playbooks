@@ -1,0 +1,19 @@
+---
+- name: Install httpd
+  yum: name=httpd state=present
+- file: path=/etc/httpd/conf.d/welcome.conf
+    state=absent
+- file: path=/var/www/error/noindex.html
+    state=absent
+- name: Copy index file
+  copy: src=index.html
+    dest=/var/www/html/index.html
+    backup=no
+    directory_mode=no
+    owner=root
+    group=root
+    mode=0755
+- name: Restart httpd
+  service: name=httpd
+    state=restarted
+    enabled=yes

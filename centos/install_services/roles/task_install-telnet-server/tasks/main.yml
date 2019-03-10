@@ -1,0 +1,15 @@
+---
+- name: Install telnet-server
+  yum: name=telnet-server state=present
+- name: Install telnet
+  yum: name=telnet state=present
+- name: Add secure terminal
+  blockinfile:
+    dest: '/etc/securetty'
+    state: present
+    content: |
+      pts/0
+- name: Restart telnet-server
+  service: name=telnet.socket
+    state=restarted
+    enabled=yes

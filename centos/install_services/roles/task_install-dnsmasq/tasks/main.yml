@@ -1,0 +1,30 @@
+---
+- name: Install dnsmasq
+  yum: name=dnsmasq state=present
+- name: Install tftp
+  yum: name=tftp state=present
+- name: Copy configuration file
+  copy: src=dnsmasq.conf
+    dest=/etc/dnsmasq.conf
+    backup=no
+    directory_mode=no
+    owner=root
+    group=root
+    mode=0755
+- name: Add hosts entries
+  blockinfile:
+    dest: /etc/hosts
+    block: |
+      192.0.2.1 sv1
+      192.0.2.2 sv2
+      192.0.2.3 sv3
+- name: Create /tftpboot directory
+  file: path=/tftpboot
+        state=directory
+        owner=root
+        group=root
+        mode=0644
+- name: Restart dnsmasq
+  service: name=dnsmasq
+    state=restarted
+    enabled=yes
